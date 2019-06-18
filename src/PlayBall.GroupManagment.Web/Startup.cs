@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using PlayBall.GroupManagment.Web.IoC;
 
 namespace PlayBall.GroupManagment.Web
 {
@@ -11,6 +12,7 @@ namespace PlayBall.GroupManagment.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddBusiness();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -21,6 +23,7 @@ namespace PlayBall.GroupManagment.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }
